@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { FetchStarWarsPeople, FetchStarWarsPlanets } from "./api";
-import { CircularProgress, Grid, Typography } from "@mui/material";
 import {
   StarWarsContext,
   type StarWarsContextType,
 } from "../../context/star-wars-context";
 import { People } from "./components/people";
 import { Planets } from "./components/planets";
+import { Progress } from "../../components/ui/progress";
 
 function StarWars() {
   const [starwarsContext, setStarWarsContext] = useState<StarWarsContextType>();
@@ -29,21 +29,23 @@ function StarWars() {
   }, []);
 
   if (isLoading || !starwarsContext) {
-    return <CircularProgress />;
+    return <Progress />;
   }
 
   return (
     <StarWarsContext value={starwarsContext}>
-      <Grid container spacing={32}>
-        <Grid size={6}>
-          <Typography variant="h2">People</Typography>
+      <div className="flex gap-8">
+        <div className="flex-1">
+          <h2 className="mb-4 p-4 text-center text-lg font-semibold">People</h2>
           <People />
-        </Grid>
-        <Grid size={6}>
-          <Typography variant="h2">Planet</Typography>
+        </div>
+        <div className="flex-1 ">
+          <h2 className="mb-4 p-4 text-center text-lg font-semibold">
+            Planets
+          </h2>
           <Planets />
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </StarWarsContext>
   );
 }

@@ -3,7 +3,7 @@ import {
   StarWarsContext,
   type StarWarsContextType,
 } from "../../../context/star-wars-context";
-import ListBasic from "../../../component/list";
+import ListBasic from "../../../components/ui/list";
 
 export function Planets() {
   const { planets, people } = useContext<StarWarsContextType>(StarWarsContext);

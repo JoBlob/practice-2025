@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ListBasic, { type ListItemType } from "../../../component/list";
+import ListBasic, { type ListItemType } from "../../../components/ui/list";
 import { StarWarsContext } from "../../../context/star-wars-context";
 
 type PersonType = { name: string; birth_year: string };
