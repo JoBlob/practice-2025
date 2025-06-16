@@ -34,7 +34,7 @@ function StarWars() {
 
   return (
     <StarWarsContext value={starwarsContext}>
-      <div className="flex gap-8">
+      <div className="flex flex-col gap-8 md:flex-row">
         <div className="flex-1">
           <h2 className="mb-4 p-4 text-center text-lg font-semibold">People</h2>
           <People />
