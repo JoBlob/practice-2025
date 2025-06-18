@@ -1,39 +1,21 @@
-import { useEffect, useState } from "react";
-import { FetchStarWarsPeople, FetchStarWarsPlanets } from "./api";
-import {
-  StarWarsContext,
-  type StarWarsContextType,
-} from "../../context/star-wars-context";
+import { useState } from "react";
+
 import { People } from "./components/people";
 import { Planets } from "./components/planets";
 import { Progress } from "../../components/ui/progress";
+import { Provider } from "react-redux";
+import { store } from "../../redux/store";
 
 function StarWars() {
-  const [starwarsContext, setStarWarsContext] = useState<StarWarsContextType>();
-  const [isLoading, setIsLoading] = useState(false);
+  // store value?
+  const [isLoading, setIsLoading] = useState(true);
 
-  async function fetchStarWarsContext() {
-    setIsLoading(true);
-    const people = await FetchStarWarsPeople();
-    const planet = await FetchStarWarsPlanets();
-
-    setStarWarsContext(() => ({
-      people: people,
-      planets: planet,
-    }));
-  }
-
-  useEffect(() => {
-    fetchStarWarsContext();
-    setIsLoading(false);
-  }, []);
-
-  if (isLoading || !starwarsContext) {
+  if (isLoading) {
     return <Progress />;
   }
 
   return (
-    <StarWarsContext value={starwarsContext}>
+    <Provider store={store}>
       <div className="flex flex-col gap-8 md:flex-row">
         <div className="flex-1">
           <h2 className="mb-4 p-4 text-center text-lg font-semibold">People</h2>
@@ -46,7 +28,7 @@ function StarWars() {
           <Planets />
         </div>
       </div>
-    </StarWarsContext>
+    </Provider>
   );
 }
 

@@ -1,19 +1,19 @@
-import { useContext } from "react";
-import {
-  StarWarsContext,
-  type StarWarsContextType,
-} from "../../../context/star-wars-context";
 import ListBasic from "../../../components/ui/list";
+import { useSelector } from "react-redux";
 
+// @TODO typescript
 export function Planets() {
-  const { planets, people } = useContext<StarWarsContextType>(StarWarsContext);
+  const { planets } = useSelector((state: any) => state.planets);
+  console.log("planets", planets);
 
-  const listItem = planets.map((planet) => ({
+  const listItem = planets.map((planet: any) => ({
     primary: planet.name,
     secondary: planet.diameter,
   }));
 
-  listItem.sort((a, b) => a.primary.localeCompare(b.primary));
+  listItem.sort((a: { primary: string }, b: { primary: any }) =>
+    a.primary.localeCompare(b.primary)
+  );
 
   return <ListBasic items={listItem} />;
 }

@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
  export const planetSlice = createSlice({
-	name: 'planet',
+	name: 'planets',
 	initialState:{
 		planets: [],
 		isLoading: false,
