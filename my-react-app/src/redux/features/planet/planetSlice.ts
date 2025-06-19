@@ -18,4 +18,4 @@ import {createSlice} from '@reduxjs/toolkit'
 
 export const {setPlanets} = planetSlice.actions
 
-export default planetSlice.reducer
+export default planetSlice

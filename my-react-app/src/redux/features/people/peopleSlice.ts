@@ -23,4 +23,4 @@ export const peopleSlice = createSlice({
 })
 
 export const { setPeople, setLoading, setError } = peopleSlice.actions;
-export default peopleSlice.reducer;	
+export default peopleSlice;	
