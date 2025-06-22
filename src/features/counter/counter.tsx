@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "./counterSlice";
-import { Card, CardContent, CardTitle } from "../../../components/ui/card";
-import { Button } from "../../../components/ui/button";
+
+import { Card, CardContent, CardTitle } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
 
 export function Counter() {
   const count = useSelector((state: any) => state.counter.count);

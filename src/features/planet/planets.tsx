@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import ListBasic from "../../../components/ui/list";
+import ListBasic from "../../components/ui/list";
 
 // @TODO typescript
 export function Planets() {

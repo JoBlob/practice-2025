@@ -1,12 +1,9 @@
-import { applyMiddleware, configureStore } from '@reduxjs/toolkit'
-import { planetSlice } from './features/planet/planetSlice'
-import { peopleSlice } from './features/people/peopleSlice'
-import { counterSlice } from './features/counter/counterSlice'
-import { composeWithDevTools } from '@redux-devtools/extension'
-import { thunk } from 'redux-thunk'
+import { configureStore } from '@reduxjs/toolkit'
 
+import planetSlice from '../features/planet/planetSlice'
+import peopleSlice from '../features/people/peopleSlice'
+import counterSlice from '../features/counter/counterSlice'
 
-const composedEnhancer = composeWithDevTools(applyMiddleware(thunk))
 
 export const store = configureStore({
     reducer: {
@@ -14,8 +11,6 @@ export const store = configureStore({
         people: peopleSlice.reducer,
         counter: counterSlice.reducer,
     },
-
-
 })
 
 // Infer the `RootState`,  `AppDispatch`, and `AppStore` types from the store itself
