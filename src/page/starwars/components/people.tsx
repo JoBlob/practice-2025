@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ListBasic, { type ListItemType } from "../../components/ui/list";
+import ListBasic, { type ListItemType } from "../../../components/ui/list";
 
 type PersonType = { name: string; birth_year: string };
 

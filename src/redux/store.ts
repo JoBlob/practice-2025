@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import planetSlice from '../features/planet/planetSlice'
-import peopleSlice from '../features/people/peopleSlice'
-import counterSlice from '../features/counter/counterSlice'
+import planetSlice from '../store/planet/planetSlice'
+import peopleSlice from '../store/people/peopleSlice'
+import counterSlice from '../store/counter/counterSlice'
 
 
 export const store = configureStore({

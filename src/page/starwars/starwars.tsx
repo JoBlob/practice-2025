@@ -1,9 +1,6 @@
 import { useState } from "react";
-
 import { Progress } from "../../components/ui/progress";
-import { People } from "../../redux/features/people/people";
-import { Planets } from "../../redux/features/planet/planets";
-import { Counter } from "../../redux/features/counter/counter";
+import { Counter } from "../../components/ui/counter";
 
 function StarWars() {
   // store value?

@@ -1,6 +1,8 @@
 // @TODO types
 
 import { createSlice } from "@reduxjs/toolkit";
+import { useState } from "react";
+
 
 // @ts-nocheck 
 const initiralState = {
@@ -18,11 +20,15 @@ export const counterSlice = createSlice({
       state.count -= 1;
     },
     incrementByAmount: (state, action) => {
+      console.log("incrementByAmount", action.payload);
       state.count += action.payload;
     },
+    reset: (state) => {
+      state.count = 0;
+    }
   },
 });
 
-export const {increment, decrement, incrementByAmount} = counterSlice.actions
+export const {increment, decrement,reset, incrementByAmount} = counterSlice.actions
 
 export default counterSlice;
