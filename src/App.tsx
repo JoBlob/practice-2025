@@ -1,10 +1,14 @@
 import "./App.css";
+import { Header } from "./components/header/header";
 import StarWars from "./page/starwars/starwars";
 
 function App() {
   return (
     <>
-      <StarWars />
+      <Header />
+      <div style={{ padding: "0 2rem" }}>
+        <StarWars />
+      </div>
     </>
   );
 }
