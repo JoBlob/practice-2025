@@ -29,7 +29,11 @@ function StarWars() {
   }, []);
 
   if (isLoading || !starwarsContext) {
-    return <Progress />;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Progress />
+      </div>
+    );
   }
 
   return (
