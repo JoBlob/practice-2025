@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { FetchStarWarsPeople, FetchStarWarsPlanets } from "./api";
 import {
   StarWarsContext,
   type StarWarsContextType,
@@ -7,28 +6,17 @@ import {
 import { People } from "./components/people";
 import { Planets } from "./components/planets";
 import { Progress } from "../../components/ui/progress";
+import { useLoaderData } from "react-router";
 
 function StarWars() {
   const [starwarsContext, setStarWarsContext] = useState<StarWarsContextType>();
-  const [isLoading, setIsLoading] = useState(false);
-
-  async function fetchStarWarsContext() {
-    setIsLoading(true);
-    const people = await FetchStarWarsPeople();
-    const planet = await FetchStarWarsPlanets();
-
-    setStarWarsContext(() => ({
-      people: people,
-      planets: planet,
-    }));
-  }
+  const data = useLoaderData();
 
   useEffect(() => {
-    fetchStarWarsContext();
-    setIsLoading(false);
+    setStarWarsContext(data);
   }, []);
 
-  if (isLoading || !starwarsContext) {
+  if (!starwarsContext) {
     return (
       <div className="flex items-center justify-center h-screen">
         <Progress />

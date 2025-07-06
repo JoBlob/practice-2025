@@ -6,7 +6,7 @@ import {
 import ListBasic from "../../../components/ui/list";
 
 export function Planets() {
-  const { planets, people } = useContext<StarWarsContextType>(StarWarsContext);
+  const { planets } = useContext<StarWarsContextType>(StarWarsContext);
 
   const listItem = planets.map((planet) => ({
     primary: planet.name,
