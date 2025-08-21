@@ -62,7 +62,7 @@ export const Header = () => {
     <header className="w-full z-40 sticky top-0 left-0 bg-background px-2 border-b-1 border-grey-500">
       <div className="relative mx-0 w-full min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-2 items-center">
         <div className="flex lg:justify-start">
-          <p className="font-semibold">Pratice App</p>
+          <p className="font-semibold">Practice App</p>
         </div>
         <div className="flex justify-end w-full gap-4">
           <NavMenu navigationItems={navigationItems} />
