@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router";
-import { Card, CardDescription, CardHeader } from "../../../components/ui/card";
+import { Card, CardContent, CardHeader } from "../../../components/ui/card";
 
 type Person = {
   name: string;
@@ -21,11 +21,39 @@ type Person = {
 };
 
 const Person = () => {
-  const { person } = useLoaderData();
+  const { person } = useLoaderData() as { person: Person };
 
   return (
-    <Card className="mt-2">
-      <CardHeader>{person.name}</CardHeader>
+    <Card className="mt-2 justify-start">
+      <CardHeader className="font-bold text-lg">{person.name}</CardHeader>
+      <CardContent>
+        <div className="my-6 w-full overflow-y-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="even:bg-muted m-0 border-t p-0">
+                <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
+                  Stats
+                </th>
+                <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
+                  Value
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(person).map(([key, value]) => (
+                <tr className="even:bg-muted m-0 border-t p-0">
+                  <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
+                    {key}
+                  </td>
+                  <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
+                    {value}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </CardContent>
     </Card>
   );
 };
